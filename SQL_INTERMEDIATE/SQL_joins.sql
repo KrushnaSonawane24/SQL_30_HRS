@@ -1,3 +1,7 @@
+use master;
+use MyDatabase;
+
+
 select*from customers;
 
 
@@ -55,16 +59,32 @@ on c.id=o.customer_id;
 ----------------Adhvance joins --------------------------
 
 
+-----left anti join-------------
 
 
+select * from customers as c
+left join orders as o
+on c.id=o.customer_id
+where c.id is NULL;
 
 
+-----------full anti join----------------
 
+select*from customers as c 
+full join orders as o 
+on c.id = o.customer_id
+where c.id is null or  o.customer_id is null;
 
+--------------cross join-----------
 
+select*from customers
+cross join orders;
 
+------------------------using salesDB data-----------
 
+use SalesDB;
 
+select o.OrderID,o.Sales from  Sales.Orders as o;
 
 
 
