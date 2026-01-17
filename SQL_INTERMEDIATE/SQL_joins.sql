@@ -87,7 +87,23 @@ use SalesDB;
 select o.OrderID,o.Sales from  Sales.Orders as o;
 
 
+select *from Sales.Customers;
+select *from Sales.Employees;
+select *from Sales.Orders;
+select *from Sales.OrdersArchive;
+select *from Sales.Products;
 
+---------task--------
+select o.OrderID,
+o.Sales,
+c.FirstName as customerFirst_name,c.LastName  as customerlast_name,p.Product as productName,p.Price,e.FirstName as empfirst_name,e.LastName as emplast_name
+from Sales.Orders as o
+left join Sales.Customers as c
+on o.CustomerID=c.CustomerID
+left join Sales.Products as p 
+on o.ProductID=p.ProductID
+left join Sales.Employees as e
+on o.SalesPersonID=e.EmployeeID 
 
 
 
